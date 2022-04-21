@@ -19,7 +19,7 @@ curl http://localhost:8081/musify/music-artist/details/daeec599-bf5d-4428-994a-e
 * Square Moshi json library for Kotlin (https://github.com/square/moshi)
 * Square OkHttp HTTP client (https://github.com/square/okhttp)
 
-# Design
+## Design
 The Musify service is calling the external services (mostly) synchronously at request time, as there is a tight dependency 
 between the data. Given an artist mbid we first check if we have it cached, if not we check MusicBrainz for the main artist data. We take the Q-id and ask WikiData for the Wikipedia title name to extract the artist summary. Lastly we check Cover Art archive for images for each album. This could be done completely separately from Wikidata/Wikipedia.
 
@@ -30,6 +30,7 @@ We could also prepopulate Musify with the most popular artist.
 * New language and libs means some parts can be improved, mainly concurrency
 * Trade-off between productivity and testability
 * Cache misses result in long response times
+* Only mapping required source data to fulfil requirement
 
 ## Todo
 * Improve test coverage
